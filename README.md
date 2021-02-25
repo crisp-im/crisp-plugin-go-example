@@ -20,7 +20,7 @@ If you want to have a first glance of a plugin, you can start the ping-pong plug
 
 This plugin will send a custom message whenever an operator/agent sends a message. The message content is based on the config that you have chosen.
 
-1. In the project root, run: `go get && go build && ./crisp-plugin-ping`
+1. In the project root, run: `go get && go build && ./crisp-plugin-go-example`
 2. You should now see in your terminal: `Socket is connected: now listening for events`. You are ready to go!
 3. Configure the custom message: Go in [Crisp Marketplace] > your plugin > Settings > Send test request. A popup will appear showing what your users will see when configuring their plugin instance. Choose your message and click "Save".
 3. In your Crisp inbox, create a new test conversation, with yourself for example.
