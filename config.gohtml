@@ -1,23 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
     <title>Setup your plugin</title>
+
     <script>
         function sendConfig() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const message = document.getElementById("message").value
-                fetch(window.location.origin + "/config/update", {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    'website_id': urlParams.get('website_id'),
-                    'token': urlParams.get('token'),
-                    'message': message,
-                })
+            var _urlParams = new URLSearchParams(window.location.search),
+              _message = document.getElementById("message").value;
 
-            }).then(_ => console.log('worked')).catch(reason => console.error(reason))
+            fetch(window.location.origin + "/config/update", {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                  "website_id": _urlParams.get("website_id"),
+                  "token": _urlParams.get("token"),
+                  "message": _message
+              })
+            }).then(() => {
+              console.log("worked");
+            }).catch(reason => {
+              console.error(reason);
+            });
         }
     </script>
 </head>

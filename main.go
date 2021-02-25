@@ -10,9 +10,9 @@ import (
 )
 
 const (
-	pluginURN          = "urn:pierre.leguen:ping:0"
+	pluginURN          = "urn:my.account:pluginname:0"
 	crispAPIIdentifier = "change-me-please"
-	crispAPIPassword   = "abcdefghijklmnopqrstuvwxyz"
+	crispAPIKey        = "abcdefghijklmnopqrstuvwxyz"
 )
 
 type crisp struct {
@@ -52,7 +52,7 @@ func initPlugin() *crisp {
 
 	config := &crispConfig{
 		CrispRESTAuthIdentifier: crispAPIIdentifier,
-		CrispRESTAuthKey:        crispAPIPassword,
+		CrispRESTAuthKey:        crispAPIKey,
 	}
 
 	subscribedWebsites := make(map[string]*crispWebsite)

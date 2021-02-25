@@ -2,7 +2,7 @@
   "$id": "crisp:service:api/_schema/plugin#urn:my.account:pluginname:0",
   "type": "object",
   "properties": {
-    "messsage": {
+    "message": {
       "type": "string"
     }
   }
