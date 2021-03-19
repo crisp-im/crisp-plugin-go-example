@@ -42,7 +42,6 @@ func main() {
 	httpEndpoint(crisp)
 }
 
-
 func initPlugin() *crisp {
 	log.SetFormatter(&log.TextFormatter{
 		TimestampFormat: "02-01-2006 15:04:05",
@@ -177,9 +176,16 @@ func httpEndpoint(crisp *crisp) {
 				log.Warnln(err)
 			}
 			websiteID := req["website_id"].(string)
-			_ = req["token"].(string)
+			token := req["token"].(string)
 			message := req["message"].(string)
-
+			if websiteID == "" || token == "" {
+				log.Error("WebsiteID or Token is missing in request.")
+				return
+			}
+			if token != crisp.websites[websiteID].subscriptionToken {
+				log.Warn("The provided token is not valid")
+				return
+			}
 			response, err := crisp.crispClient.Plugin.UpdateSubscriptionSettings(websiteID, crisp.config.CrispPluginID, PluginSettings{Message: message})
 			if err != nil {
 				log.Error(err)
